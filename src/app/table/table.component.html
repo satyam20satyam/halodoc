@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author & Submission Count</th>
+      </tr>
+    </thead>
+    <tbody>
+    <div *ngIf="tableData?.length===0">No Data Available</div>
+      <tr *ngFor="let rowData of tableData">
+        <td><a (click)="searchDetails(rowData.author)" class="list"> {{rowData.title || 'No Title Available'}}</a></td>
+        <td>{{rowData.author}} {{rowData.count}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <app-item-details [data]="detailsData"></app-item-details>
